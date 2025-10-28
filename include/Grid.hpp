@@ -14,6 +14,7 @@ class Grid
     Grid(double Smax, int M);
     double get_Smax() {return Smax_;}
     double get_M() {return M_;}
+    double get_dS() {return dS_;}
     std::vector<double> get_S() {return S_;}
 };
 

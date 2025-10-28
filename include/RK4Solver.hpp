@@ -6,7 +6,7 @@
 
 struct RK4Solver
 {
-    static void integreate(
+    static void integrate(
         std::vector<double>& V, 
         double tau, 
         double dtau, 
