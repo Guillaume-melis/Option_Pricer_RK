@@ -27,11 +27,11 @@ void RK4Solver::integrate(std::vector<double>& V,
     k3 = rhs(Vtemp);
 
     for(int i=0; i<M; i++)
-        Vtemp[i] = V[i] + 0.5 * dtau * k3[i];
-    applyBC(Vtemp, tau + 0.5 * dtau);
+        Vtemp[i] = V[i] + dtau * k3[i];
+    applyBC(Vtemp, tau + dtau);
     k4 = rhs(Vtemp);
 
     for(int i=0; i<M; i++)
-        V[i] = dtau / 6.0 * (k1[i] + 2*k2[i] + 2*k3[i] + k4[i]);
+        V[i] += dtau / 6.0 * (k1[i] + 2*k2[i] + 2*k3[i] + k4[i]);
     applyBC(V, tau+dtau);
 }
